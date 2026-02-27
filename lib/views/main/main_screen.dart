@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:movies/views/main/browse/browse_tap.dart';
-import 'package:movies/views/main/home/home_tap.dart';
-import 'package:movies/views/main/profile/profile_tap.dart';
-import 'package:movies/views/main/search/search_tap.dart';
+import 'package:movies/views/main/browse/browse_tab.dart';
+import 'package:movies/views/main/home/home_tab.dart';
+import 'package:movies/views/main/profile/profile_tab.dart';
+import 'package:movies/views/main/search/search_tab.dart';
 import 'package:movies/views/main/widgets/navbar_selection_icon.dart';
 import 'package:movies/views/main/widgets/navbar_unselection_icon.dart';
 
 class MainScreen extends StatefulWidget {
   static const String routeName = '/main';
+
+  const MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -16,7 +18,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int currentIndex = 0;
 
-  List<Widget> tap = [HomeTap(), SearchTap(), BrowseTap(), ProfileTap()];
+  List<Widget> tap = [HomeTab(), SearchTab(), BrowseTab(), ProfileTab()];
 
   @override
   Widget build(BuildContext context) {
