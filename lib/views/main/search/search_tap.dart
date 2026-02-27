@@ -5,6 +5,6 @@ class SearchTap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Search Tap'));
+    return Center(child: Text('Search Tap', style: Theme.of(context).textTheme.titleLarge));
   }
 }

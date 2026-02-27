@@ -5,6 +5,6 @@ class HomeTap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Home Tap'));
+    return Center(child: Text('Home Tap', style: Theme.of(context).textTheme.titleLarge,));
   }
 }

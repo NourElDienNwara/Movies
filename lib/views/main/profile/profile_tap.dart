@@ -5,6 +5,6 @@ class ProfileTap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Profile Tap'));
+    return Center(child: Text('Profile Tap', style: Theme.of(context).textTheme.titleLarge));
   }
 }
