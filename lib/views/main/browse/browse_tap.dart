@@ -5,6 +5,6 @@ class BrowseTap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Browse Tap'));
+    return Center(child: Text('Browse Tap', style: Theme.of(context).textTheme.titleLarge));
   }
 }
