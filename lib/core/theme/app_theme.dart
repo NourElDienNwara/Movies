@@ -19,7 +19,27 @@ class AppTheme {
 
   static ThemeData darkTheme = ThemeData(
 
-      scaffoldBackgroundColor: darkColor.primary,
+    scaffoldBackgroundColor: darkColor.primary,
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: darkColor.bottom,
+        foregroundColor: darkColor.primary,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+      ),
+    ),
+
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: darkColor.white,
+        textStyle: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          decoration: .underline,
+        ),
+      ),
+    ),
 
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: darkColor.secondary,
