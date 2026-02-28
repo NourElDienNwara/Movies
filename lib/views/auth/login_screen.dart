@@ -27,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
     AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(19),
@@ -76,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         Navigator.of(
                           context,
-                        ).pushReplacementNamed(ForgotPassword.routeName);
+                        ).pushNamed(ForgotPassword.routeName);
                       },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,

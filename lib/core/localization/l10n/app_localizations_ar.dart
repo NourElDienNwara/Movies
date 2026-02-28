@@ -15,6 +15,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get auth_register => 'إنشاء حساب';
 
   @override
+  String get auth_name => 'Name';
+
+  @override
+  String get auth_valid_name_empty => 'Please enter your name';
+
+  @override
   String get auth_email => 'البريد الإلكتروني';
 
   @override
@@ -36,6 +42,18 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get auth_valid_password_empty => 'يجب ألا تكون كلمة المرور فارغة';
+
+  @override
+  String get auth_valid_confirm_password_match => 'Passwords do not match';
+
+  @override
+  String get auth_phone => 'Phone';
+
+  @override
+  String get auth_valid_phone_empty => 'Please enter your phone number';
+
+  @override
+  String get auth_valid_phone_correct => 'Please enter a valid phone number';
 
   @override
   String get auth_forgot_password => 'هل نسيت كلمة المرور؟';
