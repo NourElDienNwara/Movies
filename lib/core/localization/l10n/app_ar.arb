@@ -1,0 +1,25 @@
+{
+    "auth_login": "تسجيل الدخول",
+    "auth_register": "إنشاء حساب",
+
+    "auth_email": "البريد الإلكتروني",
+    "auth_valid_email_empty": "من فضلك أدخل بريدك الإلكتروني",
+    "auth_valid_email_correct": "من فضلك أدخل بريدًا إلكترونيًا صحيحًا",
+
+    "auth_password": "كلمة المرور",
+    "auth_confirm_password": "تأكيد كلمة المرور",
+    "auth_valid_password_character": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+    "auth_valid_password_empty": "يجب ألا تكون كلمة المرور فارغة",
+    
+    "auth_forgot_password": "هل نسيت كلمة المرور؟",
+    "auth_no_account": "ليس لديك حساب؟ ",
+    "auth_create_account": "أنشئ حسابًا",
+    "auth_have_account": "لديك حساب بالفعل؟ ",
+
+    "auth_login_with_google": "تسجيل الدخول باستخدام جوجل",
+
+    "auth_or": "أو",
+
+    "auth_success_login": "تم تسجيل الدخول بنجاح",
+    "auth_success_register": "تم إنشاء الحساب بنجاح"
+}

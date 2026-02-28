@@ -97,6 +97,108 @@ abstract class AppLocalizations {
     Locale('ar'),
     Locale('en'),
   ];
+
+  /// No description provided for @auth_login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get auth_login;
+
+  /// No description provided for @auth_register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get auth_register;
+
+  /// No description provided for @auth_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get auth_email;
+
+  /// No description provided for @auth_valid_email_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get auth_valid_email_empty;
+
+  /// No description provided for @auth_valid_email_correct.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email'**
+  String get auth_valid_email_correct;
+
+  /// No description provided for @auth_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get auth_password;
+
+  /// No description provided for @auth_confirm_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get auth_confirm_password;
+
+  /// No description provided for @auth_valid_password_character.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get auth_valid_password_character;
+
+  /// No description provided for @auth_valid_password_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must not be empty'**
+  String get auth_valid_password_empty;
+
+  /// No description provided for @auth_forgot_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get auth_forgot_password;
+
+  /// No description provided for @auth_no_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account? '**
+  String get auth_no_account;
+
+  /// No description provided for @auth_create_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Create One'**
+  String get auth_create_account;
+
+  /// No description provided for @auth_have_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account? '**
+  String get auth_have_account;
+
+  /// No description provided for @auth_login_with_google.
+  ///
+  /// In en, this message translates to:
+  /// **'Login With Google'**
+  String get auth_login_with_google;
+
+  /// No description provided for @auth_or.
+  ///
+  /// In en, this message translates to:
+  /// **'OR'**
+  String get auth_or;
+
+  /// No description provided for @auth_success_login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login successful'**
+  String get auth_success_login;
+
+  /// No description provided for @auth_success_register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register successful'**
+  String get auth_success_register;
 }
 
 class _AppLocalizationsDelegate
