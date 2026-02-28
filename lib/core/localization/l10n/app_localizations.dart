@@ -110,6 +110,18 @@ abstract class AppLocalizations {
   /// **'Register'**
   String get auth_register;
 
+  /// No description provided for @auth_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get auth_name;
+
+  /// No description provided for @auth_valid_name_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your name'**
+  String get auth_valid_name_empty;
+
   /// No description provided for @auth_email.
   ///
   /// In en, this message translates to:
@@ -151,6 +163,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password must not be empty'**
   String get auth_valid_password_empty;
+
+  /// No description provided for @auth_valid_confirm_password_match.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get auth_valid_confirm_password_match;
+
+  /// No description provided for @auth_phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get auth_phone;
+
+  /// No description provided for @auth_valid_phone_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your phone number'**
+  String get auth_valid_phone_empty;
+
+  /// No description provided for @auth_valid_phone_correct.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid phone number'**
+  String get auth_valid_phone_correct;
 
   /// No description provided for @auth_forgot_password.
   ///
