@@ -3,12 +3,16 @@ import 'package:movies/core/localization/l10n/app_localizations.dart';
 import 'package:movies/core/services/providers/setting_provider.dart';
 import 'package:movies/core/theme/app_theme.dart';
 import 'package:movies/views/main/main_screen.dart';
+import 'package:movies/views/movie_details/movie_details_screen.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   return runApp(
-    MultiProvider(providers: [ChangeNotifierProvider(create: (_) => SettingsProvider(),),], child: Movies(),),
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => SettingsProvider())],
+      child: Movies(),
+    ),
   );
 }
 
@@ -17,14 +21,14 @@ class Movies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
-    
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
       routes: {
-          MainScreen.routeName: (_) => MainScreen(),
+        MainScreen.routeName: (_) => MainScreen(),
+        MovieDetailsScreen.routeName: (_) => MovieDetailsScreen(),
       },
       initialRoute: MainScreen.routeName,
 
@@ -33,7 +37,6 @@ class Movies extends StatelessWidget {
       locale: settingsProvider.languageCode == null
           ? null
           : Locale(settingsProvider.languageCode!),
-
 
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
