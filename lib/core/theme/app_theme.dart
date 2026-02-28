@@ -30,6 +30,17 @@ class AppTheme {
       ),
     ),
 
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: darkColor.white,
+        textStyle: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          decoration: .underline,
+        ),
+      ),
+    ),
+
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: darkColor.secondary,
       type: BottomNavigationBarType.fixed,
