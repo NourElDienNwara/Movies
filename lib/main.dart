@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies/core/localization/l10n/app_localizations.dart';
+import 'package:movies/core/services/providers/main_provider.dart';
 import 'package:movies/core/services/providers/setting_provider.dart';
 import 'package:movies/core/theme/app_theme.dart';
 import 'package:movies/views/main/main_screen.dart';
@@ -10,7 +11,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   return runApp(
     MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => SettingsProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => SettingsProvider()),
+        ChangeNotifierProvider(create: (_) => MainProvider()),
+      ],
       child: Movies(),
     ),
   );

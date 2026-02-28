@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:movies/core/services/providers/main_provider.dart';
 import 'package:movies/core/theme/app_theme.dart';
 import 'package:movies/widgets/movie_item.dart';
+import 'package:provider/provider.dart';
 
 class MovieCategory extends StatelessWidget {
   const MovieCategory({super.key});
@@ -29,7 +31,12 @@ class MovieCategory extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Provider.of<MainProvider>(
+                      context,
+                      listen: false,
+                    ).changeTab(2);
+                  },
                   child: Row(
                     children: [
                       Text(

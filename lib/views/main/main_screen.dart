@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:movies/core/services/providers/main_provider.dart';
 import 'package:movies/views/main/browse/browse_tab.dart';
 import 'package:movies/views/main/home/home_tab.dart';
 import 'package:movies/views/main/profile/profile_tab.dart';
 import 'package:movies/views/main/search/search_tab.dart';
 import 'package:movies/views/main/widgets/navbar_selection_icon.dart';
 import 'package:movies/views/main/widgets/navbar_unselection_icon.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
   static const String routeName = '/main';
@@ -16,19 +18,18 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int currentIndex = 0;
-
-  List<Widget> tap = [HomeTab(), SearchTab(), BrowseTab(), ProfileTab()];
+  List<Widget> tabs = [HomeTab(), SearchTab(), BrowseTab(), ProfileTab()];
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MainProvider>(context);
     return Scaffold(
-      body: tap[currentIndex],
+      body: tabs[provider.currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (index) => setState(() {
-          currentIndex = index;
-        }),
+        currentIndex: provider.currentIndex,
+        onTap: (index) {
+          provider.changeTab(index);
+        },
         items: [
           BottomNavigationBarItem(
             icon: NavbarUnselectionIcon(iconName: 'home'),
