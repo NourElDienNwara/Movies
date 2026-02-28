@@ -235,6 +235,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Register successful'**
   String get auth_success_register;
+
+  /// No description provided for @auth_verify_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify Your Email'**
+  String get auth_verify_email;
+
+  /// No description provided for @auth_verify_email_message.
+  ///
+  /// In en, this message translates to:
+  /// **'A verification email has been sent to your email address.'**
+  String get auth_verify_email_message;
 }
 
 class _AppLocalizationsDelegate

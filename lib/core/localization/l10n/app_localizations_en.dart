@@ -77,4 +77,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get auth_success_register => 'Register successful';
+
+  @override
+  String get auth_verify_email => 'Verify Your Email';
+
+  @override
+  String get auth_verify_email_message =>
+      'A verification email has been sent to your email address.';
 }

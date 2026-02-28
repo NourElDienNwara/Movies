@@ -21,6 +21,12 @@ class AppTheme {
 
     scaffoldBackgroundColor: darkColor.primary,
 
+    appBarTheme: AppBarTheme(
+      backgroundColor: darkColor.primary,
+      elevation: 0,
+      centerTitle: true,
+    ),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: darkColor.bottom,
