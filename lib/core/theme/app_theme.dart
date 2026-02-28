@@ -41,6 +41,36 @@ class AppTheme {
       ),
     ),
 
+    inputDecorationTheme: InputDecorationThemeData(
+      filled: true,
+      fillColor: darkColor.secondary,
+      hintStyle: TextStyle(
+        color: darkColor.white.withValues(alpha: 0.5),
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      ),
+
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: darkColor.secondary),
+        borderRadius: BorderRadius.circular(16),
+      ),
+
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: darkColor.bottom),
+        borderRadius: BorderRadius.circular(16),
+      ),
+
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: darkColor.error),
+        borderRadius: BorderRadius.circular(16),
+      ),
+
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: darkColor.error),
+        borderRadius: BorderRadius.circular(16),
+      ),
+    ),
+
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: darkColor.secondary,
       type: BottomNavigationBarType.fixed,
