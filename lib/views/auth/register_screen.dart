@@ -117,30 +117,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   },
                 ),
 
-                SizedBox(height: 22),
-
-                Row(
-                  mainAxisAlignment: .end,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(
-                          context,
-                        ).pushNamed(ForgotPassword.routeName);
-                      },
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        minimumSize: Size(1, 1),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                      child: Text(
-                        appLocalizations.auth_forgot_password,
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                    ),
-                  ],
-                ),
-
                 SizedBox(height: 35),
 
                 DefaultElevatedBotton(
