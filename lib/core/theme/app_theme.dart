@@ -19,7 +19,63 @@ class AppTheme {
 
   static ThemeData darkTheme = ThemeData(
 
-      scaffoldBackgroundColor: darkColor.primary,
+    scaffoldBackgroundColor: darkColor.primary,
+
+    appBarTheme: AppBarTheme(
+      backgroundColor: darkColor.primary,
+      elevation: 0,
+      centerTitle: true,
+    ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: darkColor.bottom,
+        foregroundColor: darkColor.primary,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+      ),
+    ),
+
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: darkColor.white,
+        textStyle: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          decoration: .underline,
+        ),
+      ),
+    ),
+
+    inputDecorationTheme: InputDecorationThemeData(
+      filled: true,
+      fillColor: darkColor.secondary,
+      hintStyle: TextStyle(
+        color: darkColor.white.withValues(alpha: 0.5),
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      ),
+
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: darkColor.secondary),
+        borderRadius: BorderRadius.circular(16),
+      ),
+
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: darkColor.bottom),
+        borderRadius: BorderRadius.circular(16),
+      ),
+
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: darkColor.error),
+        borderRadius: BorderRadius.circular(16),
+      ),
+
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: darkColor.error),
+        borderRadius: BorderRadius.circular(16),
+      ),
+    ),
 
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: darkColor.secondary,
@@ -47,7 +103,7 @@ class AppTheme {
       titleSmall: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w400,
-        color: darkColor.white,
+        color: darkColor.bottom,
       ),
     ),
   );

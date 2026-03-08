@@ -3,6 +3,9 @@ import 'package:movies/core/localization/l10n/app_localizations.dart';
 import 'package:movies/core/services/providers/main_provider.dart';
 import 'package:movies/core/services/providers/setting_provider.dart';
 import 'package:movies/core/theme/app_theme.dart';
+import 'package:movies/views/auth/forgot_password.dart';
+import 'package:movies/views/auth/login_screen.dart';
+import 'package:movies/views/auth/register_screen.dart';
 import 'package:movies/views/main/main_screen.dart';
 import 'package:movies/views/movie_details/movie_details_screen.dart';
 import 'package:provider/provider.dart';
@@ -31,10 +34,17 @@ class Movies extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       routes: {
+<<<<<<< HEAD
         MainScreen.routeName: (_) => MainScreen(),
         MovieDetailsScreen.routeName: (_) => MovieDetailsScreen(),
+=======
+        LoginScreen.routeName: (_) => LoginScreen(),
+        RegisterScreen.routeName: (_) => RegisterScreen(),
+        ForgotPassword.routeName: (_) => ForgotPassword(),
+        MainScreen.routeName: (_) => MainScreen(),
+>>>>>>> develop
       },
-      initialRoute: MainScreen.routeName,
+      initialRoute: LoginScreen.routeName,
 
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
