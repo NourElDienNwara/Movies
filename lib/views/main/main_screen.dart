@@ -9,6 +9,8 @@ import 'package:movies/views/main/widgets/navbar_unselection_icon.dart';
 class MainScreen extends StatefulWidget {
   static const String routeName = '/main';
 
+  const MainScreen({super.key});
+
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
