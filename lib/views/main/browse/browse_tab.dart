@@ -12,7 +12,6 @@ class BrowseTab extends StatefulWidget {
 }
 
 class _BrowseTabState extends State<BrowseTab> {
-  // List of genres matching the image + YTS API standards
   final List<String> genres = [
     "Action",
     "Adventure",
@@ -28,7 +27,7 @@ class _BrowseTabState extends State<BrowseTab> {
   @override
   void initState() {
     super.initState();
-    // Initial fetch
+
     context.read<MovieBloc>().add(FetchMovies(genre: selectedGenre));
   }
 
@@ -40,7 +39,6 @@ class _BrowseTabState extends State<BrowseTab> {
       body: SafeArea(
         child: Column(
           children: [
-            // 1. Horizontal Genre Filter
             SizedBox(
               height: 60,
               child: ListView.builder(
@@ -87,7 +85,6 @@ class _BrowseTabState extends State<BrowseTab> {
               ),
             ),
 
-            // 2. Movie Grid View
             Expanded(
               child: BlocBuilder<MovieBloc, MovieState>(
                 builder: (context, state) {
@@ -98,9 +95,7 @@ class _BrowseTabState extends State<BrowseTab> {
                   }
 
                   if (state is MovieLoaded) {
-                    // Accessing the specific list from your cache/key map
-                    final currentKey =
-                        "${selectedGenre}_null"; // matching your BLoC key logic
+                    final currentKey = "${selectedGenre}_null";
                     final movies = state.moviesByKey[currentKey] ?? [];
 
                     if (movies.isEmpty) {
@@ -116,10 +111,10 @@ class _BrowseTabState extends State<BrowseTab> {
                       padding: const EdgeInsets.all(15),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2, // 2 columns as seen in the image
+                            crossAxisCount: 2,
                             crossAxisSpacing: 15,
                             mainAxisSpacing: 15,
-                            childAspectRatio: 0.7, // Adjust for poster height
+                            childAspectRatio: 0.7,
                           ),
                       itemCount: movies.length,
                       itemBuilder: (context, index) =>
@@ -136,7 +131,7 @@ class _BrowseTabState extends State<BrowseTab> {
                     );
                   }
 
-                  return const SizedBox.shrink();
+                  return SizedBox.shrink();
                 },
               ),
             ),
