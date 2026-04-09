@@ -48,4 +48,42 @@ class MovieRepository {
       throw Exception("Failed to fetch movies: $e");
     }
   }
+
+  Future<Movie> fetchMovieDetails(int movieId) async {
+    try {
+      final response = await _dio.get(
+        'movie_details.json',
+        queryParameters: {
+          'movie_id': movieId,
+          'with_images': true,
+          'with_cast': true,
+        },
+      );
+
+      if (response.data['status'] == 'ok') {
+        return Movie.fromJson(response.data['data']['movie']);
+      } else {
+        throw Exception(response.data['status_message'] ?? "API Error");
+      }
+    } catch (e) {
+      throw Exception("Failed to load details: $e");
+    }
+  }
+
+  Future<List<Movie>> fetchSimilarMovies(int movieId) async {
+    try {
+      final response = await _dio.get(
+        'movie_suggestions.json',
+        queryParameters: {'movie_id': movieId},
+      );
+
+      if (response.data['status'] == 'ok') {
+        final List? moviesJson = response.data['data']['movies'];
+        return moviesJson?.map((m) => Movie.fromJson(m)).toList() ?? [];
+      }
+      return [];
+    } catch (e) {
+      return [];
+    }
+  }
 }

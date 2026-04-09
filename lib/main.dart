@@ -35,11 +35,20 @@ class Movies extends StatelessWidget {
 
       routes: {
         MainScreen.routeName: (_) => MainScreen(),
-        MovieDetailsScreen.routeName: (_) => MovieDetailsScreen(),
-
         LoginScreen.routeName: (_) => LoginScreen(),
         RegisterScreen.routeName: (_) => RegisterScreen(),
         ForgotPassword.routeName: (_) => ForgotPassword(),
+      },
+
+      onGenerateRoute: (settings) {
+        if (settings.name == MovieDetailsScreen.routeName) {
+          final int movieId = settings.arguments as int;
+
+          return MaterialPageRoute(
+            builder: (context) => MovieDetailsScreen(movieId: movieId),
+          );
+        }
+        return null;
       },
       initialRoute: MainScreen.routeName,
 
