@@ -16,8 +16,6 @@ class MainScreen extends StatelessWidget {
 
   const MainScreen({super.key});
 
-  const MainScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MainProvider>(context);
