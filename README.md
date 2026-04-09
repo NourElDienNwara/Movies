@@ -2,6 +2,14 @@
 
 A new Flutter project.
 
+part mohamed salah 
+splash
+home tab
+browse tab
+movie details tab
+https://github.com/user-attachments/assets/0c44e597-d53c-435e-9057-5d9d43b6f63d
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
