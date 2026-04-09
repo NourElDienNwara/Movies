@@ -34,17 +34,14 @@ class Movies extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       routes: {
-<<<<<<< HEAD
         MainScreen.routeName: (_) => MainScreen(),
         MovieDetailsScreen.routeName: (_) => MovieDetailsScreen(),
-=======
+
         LoginScreen.routeName: (_) => LoginScreen(),
         RegisterScreen.routeName: (_) => RegisterScreen(),
         ForgotPassword.routeName: (_) => ForgotPassword(),
-        MainScreen.routeName: (_) => MainScreen(),
->>>>>>> develop
       },
-      initialRoute: LoginScreen.routeName,
+      initialRoute: MainScreen.routeName,
 
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

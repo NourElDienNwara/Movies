@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies/core/localization/l10n/app_localizations.dart';
 import 'package:movies/core/theme/app_theme.dart';
-import 'package:movies/views/auth/forgot_password.dart';
 import 'package:movies/views/auth/login_screen.dart';
 import 'package:movies/views/main/main_screen.dart';
 import 'package:movies/widgets/default_elevated_botton.dart';

@@ -8,11 +8,8 @@ import 'package:movies/widgets/ui_utils.dart';
 class ForgotPassword extends StatefulWidget {
   static const String routeName = '/forgot-password';
 
-<<<<<<< HEAD
   const ForgotPassword({super.key});
 
-=======
->>>>>>> develop
   @override
   State<ForgotPassword> createState() => _ForgotPasswordState();
 }

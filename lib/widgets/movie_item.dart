@@ -1,55 +1,60 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movies/core/theme/app_theme.dart';
-import 'package:movies/views/movie_details/movie_details_screen.dart';
+import 'package:movies/data/model/movie_model.dart';
 
 class MovieItem extends StatelessWidget {
-  const MovieItem({super.key});
+  final Movie movie;
+
+  const MovieItem({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, MovieDetailsScreen.routeName);
-      },
-      child: Stack(
-        children: [
-          /// Movie Poster
-          Card(
-            margin: EdgeInsets.zero,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            clipBehavior: Clip.antiAlias,
-            child: AspectRatio(
-              aspectRatio: 2 / 3,
-              child: Image(
-                image: AssetImage('assets/images/1917_movie.png'),
-                fit: BoxFit.cover,
+    return Container(
+      width: 146,
+      height: 220,
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Stack(
+          children: [
+            //  Movie Image
+            CachedNetworkImage(
+              imageUrl: movie.mediumCoverImage,
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+              placeholder: (context, url) => Container(
+                color: Colors.grey[900],
+                child: const Center(child: CircularProgressIndicator()),
               ),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
-          ),
 
-          /// Rating Badge
-          Positioned(
-            top: 11,
-            left: 9,
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 6, vertical: 3),
-              decoration: BoxDecoration(
-                color: AppTheme.darkColor.primary.withValues(alpha: 0.7),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                children: [
-                  Text('7.7', style: textTheme.titleMedium),
-                  SizedBox(width: 4),
-                  Icon(Icons.star, color: AppTheme.darkColor.bottom, size: 15),
-                ],
+            //  Rating badge
+            Positioned(
+              top: 13,
+              left: 13,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                decoration: BoxDecoration(
+                  color: Colors.black.withValues(alpha: 0.7),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.star, color: Colors.amber, size: 12),
+                    const SizedBox(width: 4),
+                    Text(
+                      movie.rating.toString(),
+                      style: const TextStyle(color: Colors.white, fontSize: 10),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

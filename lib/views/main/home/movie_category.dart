@@ -1,73 +1,109 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:movies/core/services/providers/main_provider.dart';
-import 'package:movies/core/theme/app_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies/bloc/movie_bloc.dart';
 import 'package:movies/widgets/movie_item.dart';
 import 'package:provider/provider.dart';
+import 'package:movies/core/services/providers/main_provider.dart';
 
 class MovieCategory extends StatelessWidget {
-  const MovieCategory({super.key});
+  final String title;
+  final String genre;
+  final String sortBy;
+  final bool shouldShuffle;
+
+  const MovieCategory({
+    super.key,
+    required this.title,
+    required this.genre,
+    this.sortBy = 'year',
+    this.shouldShuffle = false,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    TextTheme textTheme = Theme.of(context).textTheme;
+    final bloc = context.read<MovieBloc>();
+
+    //  call once after build
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      bloc.add(
+        FetchMovies(genre: genre, sortBy: sortBy, shouldShuffle: shouldShuffle),
+      );
+    });
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// Category Header
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Action',
-                  style: textTheme.titleLarge!.copyWith(
-                    color: AppTheme.darkColor.white,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Provider.of<MainProvider>(
-                      context,
-                      listen: false,
-                    ).changeTab(2);
-                  },
-                  child: Row(
-                    children: [
-                      Text(
-                        'See More',
-                        style: textTheme.titleMedium!.copyWith(
-                          color: AppTheme.darkColor.bottom,
-                        ),
-                      ),
-                      SizedBox(width: 6),
-                      SvgPicture.asset(
-                        'assets/icons/arrow2.svg',
-                        width: 8,
-                        height: 8,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+          _buildHeader(context),
+          SizedBox(
+            height: 250,
+
+            child: BlocBuilder<MovieBloc, MovieState>(
+              builder: (context, state) {
+                if (state is MovieLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(color: Colors.yellow),
+                  );
+                }
+
+                if (state is MovieLoaded) {
+                  final key = "${genre}_$sortBy";
+                  final movies = state.moviesByKey[key];
+
+                  if (movies == null) {
+                    return const SizedBox();
+                  }
+                  return ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: movies.length,
+                    separatorBuilder: (_, index) => const SizedBox(width: 12),
+                    itemBuilder: (_, index) => MovieItem(movie: movies[index]),
+                  );
+                }
+
+                if (state is MovieError) {
+                  return const Center(
+                    child: Text("Error", style: TextStyle(color: Colors.red)),
+                  );
+                }
+
+                return const SizedBox();
+              },
             ),
           ),
-          SizedBox(height: 6),
+        ],
+      ),
+    );
+  }
 
-          /// Horizontal Movie List
-          SizedBox(
-            height: size.height * 0.24,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.only(left: 16),
-              itemCount: 10,
-              itemBuilder: (_, index) => MovieItem(),
-              separatorBuilder: (_, index) => SizedBox(width: 16),
+  Widget _buildHeader(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title, style: Theme.of(context).textTheme.titleLarge),
+
+          GestureDetector(
+            onTap: () {
+              // Switch to Browse tab
+              Provider.of<MainProvider>(context, listen: false).changeTab(2);
+
+              // Fetch same category in full screen
+              context.read<MovieBloc>().add(
+                FetchMovies(
+                  genre: genre,
+                  sortBy: sortBy,
+                  shouldShuffle: shouldShuffle,
+                ),
+              );
+            },
+            child: const Text(
+              "See More",
+              style: TextStyle(
+                color: Colors.amber,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ],
