@@ -11,6 +11,8 @@ import 'package:movies/widgets/ui_utils.dart';
 class LoginScreen extends StatefulWidget {
   static const String routeName = '/login';
 
+  const LoginScreen({super.key});
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -23,9 +25,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -94,7 +95,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 SizedBox(height: 35),
 
-                DefaultElevatedBotton(label: appLocalizations.auth_login, onPressed: login),
+                DefaultElevatedBotton(
+                  label: appLocalizations.auth_login,
+                  onPressed: login,
+                ),
 
                 SizedBox(height: 22),
 
@@ -159,7 +163,9 @@ class _LoginScreenState extends State<LoginScreen> {
   void login() {
     if (formKey.currentState!.validate()) {
       Navigator.of(context).pushReplacementNamed(MainScreen.routeName);
-      UiUtils.showSuccessMesssage(AppLocalizations.of(context)!.auth_success_login);
+      UiUtils.showSuccessMesssage(
+        AppLocalizations.of(context)!.auth_success_login,
+      );
     }
   }
 }
